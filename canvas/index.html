@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Drawing Area</title>
+<!-- You can add your style here rather than in an external style sheet. -->
+<style>
+	canvas {
+	    border:5px solid #d3d3d3;
+	    background-color:#f1f1f1 ;
+	    display: block;
+	}
+</style>
+</head>
+<body>
+    <!-- DO NOT MODIFY THIS HTML -->
+    <canvas id = "myCanvas" width = 350 height = 500  ></canvas>
+    <input type = "color" id = "picker"/>
+<script>
+  var colorInput = document.getElementById("picker");
+	var canvas = document.getElementById("myCanvas");
+	var ctx = canvas.getContext("2d");
+	var Pen;
+  canvas.width=window.innerWidth*0.8;
+	canvas.height=window.innerHeight*0.8;
+//draw a circle.
+function draw(x,y){
+	ctx.beginPath();
+	ctx.arc(x, y, 10, 0, 2 * Math.PI);
+	ctx.fill();
+}
+
+myCanvas.addEventListener('mousemove',function(e){
+		var x = e.offsetX;
+    var y = e.offsetY;
+
+		if (Pen =="off"){
+			console.log("lift the pen");
+		}
+		else
+		{
+			draw(x,y);
+			console.log(e);
+		}
+	})
+
+window.addEventListener(
+		'keydown',function(e){
+			switch(e.key){
+	  	case 'r':
+			ctx.fillStyle = "red";
+			console.log("red");
+			break;
+			case 'b':
+			ctx.fillStyle ="blue";
+			console.log("blue");
+			break;
+	  	case 'g':
+			ctx.fillStyle ="green";
+			console.log("green");
+			break;
+			case 'y':
+			ctx.fillStyle ="yellow";
+			console.log("yellow");
+			break;
+			case ' ':
+			ctx.clearRect(0,0,canvas.width,canvas.height);
+			console.log("clear");
+			break;
+			case "ArrowUp":
+			Pen = "off";
+			break;
+			case "ArrowDown":
+			Pen = "on";
+			break;
+		  default:
+		  console.log("no case")
+			}
+		}
+		)
+ colorInput.addEventListener('change', function() {
+   ctx.fillStyle = colorInput.value;
+	 console.log("Use color picker")
+});
+</script>
+</body>
+</html>
