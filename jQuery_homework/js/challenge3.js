@@ -15,5 +15,5 @@ $("#ch3form").submit(function(){
   else
   {
     return true;
-  };
-});
+  }
+})
