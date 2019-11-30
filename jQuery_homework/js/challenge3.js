@@ -1,15 +1,19 @@
 $("#ch3form").submit(function(){
-  if ($('input[name="fruit"]:checked').val() && $('input[name="standing"]:checked').val())
+  if (($('input[name="fruit"]:checked').val() == null) && ($('input[name="standing"]:checked').val()==null))
   {
-    return true;
+    alert("You must pick a standing and a fruit!");
+    return false;
   }
-  if ($('input[name="fruit"]:checked').val() || $('input[name="standing"]:checked').val())
-  {
-    return true;
-  }
+ if (($('input[name = "fruit"]:checked').val() == null) && ($('input[name="standing"]:checked').val() != null)) {
+            alert("You must pick a fruit as well!");
+            return false;
+        } 
+        if (($('input[name = "fruit"]:checked').val() != null) && ($('input[name="standing"]:checked').val() == null)) {
+            alert("You must pick a standing as well!");
+            return false;
+        }
   else
   {
-    alert("You must pick a fruit and current class standing!")
-    return false;
+    return true;
   };
 });
