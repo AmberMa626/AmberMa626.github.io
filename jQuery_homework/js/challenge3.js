@@ -5,14 +5,14 @@ $("#ch3form").submit(function(){
     return false;
   }
  if (($('input[name = "fruit"]:checked').val() == null) && ($('input[name="standing"]:checked').val() != null)) {
-            alert("You must pick a fruit as well!");
-            return false;
+    alert("You must pick a fruit as well!");
+    return false;
         } 
-        if (($('input[name = "fruit"]:checked').val() != null) && ($('input[name="standing"]:checked').val() == null)) {
-            alert("You must pick a standing as well!");
-            return false;
+ if (($('input[name = "fruit"]:checked').val() != null) && ($('input[name="standing"]:checked').val() == null)) {
+     alert("You must pick a standing as well!");
+     return false;
         }
-  else
+ else
   {
     return true;
   }
